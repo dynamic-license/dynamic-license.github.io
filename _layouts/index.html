@@ -1,0 +1,20 @@
+---
+layout: page
+---
+
+{% include menu.html %}
+
+<div class="wrapper" >
+	{{ content }}
+	<h1>Available Licenses</h1>
+	<ul>
+	{% assign sorted = site.licenses | sort: "abbreviation" | reverse %}
+	{% for license in sorted %}
+		<a href="{{ license.url }}" >
+			<li>
+				{{ license.full_name }} ({{ license.abbreviation }})
+			</li>
+		</a>
+	{% endfor %}
+	</ul>
+</div>
